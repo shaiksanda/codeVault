@@ -1,0 +1,44 @@
+const mongoose = require("mongoose");
+const bcrypt=require("bcrypt")
+const jwt=require("jsonwebtoken")
+
+const userSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true
+    },
+    password: {
+      type: String,
+      required: true
+    }
+  },
+  { timestamps: true }
+);
+
+
+//hash password
+userSchema.statics.hashPassword = async (password) => {
+  return bcrypt.hash(password, 10);
+};
+// Compare password
+userSchema.statics.comparePassword = async (password, hashedPassword) => {
+  return bcrypt.compare(password, hashedPassword);
+};
+
+// Generate JWT
+userSchema.statics.generateAuthToken = (userId) => {
+  return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
+};
+
+
+const userModel = mongoose.model("User", userSchema);
+module.exports = userModel;
