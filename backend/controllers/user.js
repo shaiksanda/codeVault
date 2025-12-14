@@ -1,11 +1,11 @@
 const userModel = require("../models/user");
+const sanitize = require("../utils/sanitize");
 
 
 module.exports.registerUser = async (req, res, next) => {
     try {
-        const { username, email, password } = req.body
-
-
+        const body=sanitize(req.body)
+        const { username, email, password } = body
 
         if (!username || !email || !password)
             return res.status(400).json({ message: "All fields are required" });
@@ -33,7 +33,8 @@ module.exports.registerUser = async (req, res, next) => {
 
 module.exports.loginUser = async (req, res, next) => {
     try {
-        const { username, password } = req.body
+        const body=sanitize(req.body)
+        const { username, password } = body
 
         if (!username || !password)
             return res.status(400).json({ message: "Username and password are required" });

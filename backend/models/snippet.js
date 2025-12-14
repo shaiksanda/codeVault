@@ -16,7 +16,7 @@ const snippetSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
-    user: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true
@@ -24,5 +24,7 @@ const snippetSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+const snippetModel=mongoose.model("Snippet", snippetSchema);
 
-module.exports = mongoose.model("Snippet", snippetSchema);
+
+module.exports = snippetModel

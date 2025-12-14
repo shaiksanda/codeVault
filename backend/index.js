@@ -14,10 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 const userRoutes = require("./routes/userRoutes");
-//const snippetRoutes = require("./routes/snippetRoutes");
+const snippetRoutes = require("./routes/snippetRoutes");
 
 app.use("/user", userRoutes);
-// app.use("/snippet", snippetRoutes);
+app.use("/snippet", snippetRoutes);
 
 
 
