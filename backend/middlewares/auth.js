@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
+const BlacklistToken = require("../models/blacklist")
 
-const authenticateUser = (req, res, next) => {
+const authenticateUser = async(req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
@@ -14,8 +15,14 @@ const authenticateUser = (req, res, next) => {
       return res.status(401).json({ message: "Token missing" });
     }
 
+    const isBlacklisted = await BlacklistToken.findOne({ token })
+
+    if (isBlacklisted) {
+      return res.status(401).json({ message: "Unauthorized" })
+    }
+
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; 
+    req.user = decoded;
     next();
   } catch (error) {
     return res.status(401).json({ message: "Invalid or expired token" });
