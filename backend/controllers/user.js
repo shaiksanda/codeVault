@@ -1,6 +1,8 @@
 const userModel = require("../models/user");
 const sanitize = require("../utils/sanitize");
 
+const BlacklistToken = require("../models/blacklist")
+
 
 module.exports.registerUser = async (req, res, next) => {
     try {
@@ -53,6 +55,24 @@ module.exports.loginUser = async (req, res, next) => {
         const token = await userModel.generateAuthToken(existingUser._id)
         const userDetails = { username: existingUser.username, role: existingUser.role, avatar: existingUser.avatar }
         return res.status(200).json({ token, userDetails, message: "Login Successful!" })
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
+module.exports.logoutUser = async (req, res, next) => {
+    try {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
+        const token = authHeader.split(" ")[1];
+        await BlacklistToken.create({ token })
+
+        res.status(200).json({ message: "Logged Out Successfully!" })
     }
     catch (error) {
         res.status(500).json({ message: error.message })
