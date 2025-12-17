@@ -1,8 +1,14 @@
 import Header from "../Header"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
+import cookie from "js-cookie"
+
 import "./index.css"
 
 const Home = () => {
+    const jwtToken = cookie.get("jwt_token")
+    if (jwtToken) {
+        return <Navigate to="/code-vault" />;
+    }
     return (
         <div>
             <Header />

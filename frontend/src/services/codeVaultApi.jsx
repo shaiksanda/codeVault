@@ -1,8 +1,6 @@
-// services/codeVaultApi.jsx
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Cookies from 'js-cookie';
-
-
 
 export const codeVaultApi = createApi({
     reducerPath: 'codeVaultApi',

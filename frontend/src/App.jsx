@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import CodeVault from "./components/CodeVault"
+import SnippetDetail from './components/SnippetDetail'
 import NotFound from './components/NotFound'
 import ProtectedRoute from "./components/ProtectedRoute"
 import { ToastContainer } from 'react-toastify';
@@ -18,10 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path='code-vault' element={<ProtectedRoute element={<CodeVault />} />} />
-
-
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/code-vault" element={<ProtectedRoute element={<CodeVault />} />} />
+        <Route path="/snippet/:id" element={<SnippetDetail />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
