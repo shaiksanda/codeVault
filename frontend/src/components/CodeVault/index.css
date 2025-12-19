@@ -8,17 +8,17 @@
 .grid-data-wrapper{
     display: grid;
     grid-template-columns: repeat(1,1fr);
-    grid-gap: 10px;
-    width: 100%;
+    row-gap: 10px;
+    
 }
 
 .grid-data{
     background-color: lavender;
-    padding: 10px;
+    padding: 6px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 1s ease;
-    width: 100%;
+    margin: 2px;
 }
 
 .highlighter{
@@ -55,6 +55,7 @@
     background-color: black;
     color: white;
     outline: none;
+    height: 40px;
 }
 
 @media screen and (min-width:768px){
