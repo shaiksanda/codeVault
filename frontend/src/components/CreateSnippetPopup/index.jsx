@@ -38,7 +38,7 @@ const CreateSnippetPopup = () => {
                 borderRadius: '12px',
                 width: '90%',
                 maxWidth: '400px',
-            }} modal trigger={<button className="button">Create</button>}>
+            }} modal trigger={<button className="button save-button">Create</button>}>
             {(close) => (
                 <div>
                     <h1 className="heading create-snippet-heading">Create Snippet</h1>
@@ -62,7 +62,7 @@ const CreateSnippetPopup = () => {
                             <option value="kotlin">Kotlin</option>
                         </select>
                         <div className="input-wrapper">
-                            <input onChange={handleChange} value={formData.code} name="code" required className="input-element" id="code" type="text" />
+                            <textarea onChange={handleChange} value={formData.code} name="code" required className="input-element" id="code" type="text" />
                             <label className="label" htmlFor="code">Code</label>
                         </div>
 

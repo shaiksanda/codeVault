@@ -75,7 +75,7 @@ const Login = () => {
     return <Navigate to="/code-vault" />;
   }
   return (
-    <main className="flex-layout">
+    <main className="flex-login-layout">
       <section className="hero-img-container">
         <img className="hero-image" src="https://res.cloudinary.com/dq4yjeejc/image/upload/v1749119001/todo-login-image_lbfx0u.webp" alt="" />
       </section>

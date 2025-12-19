@@ -1,0 +1,16 @@
+.flex-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+
+.logout-button{
+    background-color: red;
+    color:white
+}
+
+.close-button{
+    background-color: black;
+    color: white;
+}

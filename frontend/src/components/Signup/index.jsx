@@ -76,7 +76,7 @@ const Signup = () => {
     return <Navigate to="/code-vault" />;
   }
   return (
-    <main className="flex-layout">
+    <main className="flex-login-layout">
       <section className="hero-img-container">
         <img className="hero-image" src="https://res.cloudinary.com/dq4yjeejc/image/upload/v1762740292/Screenshot_2025-11-10_073427_xkrq7n.png" alt="" />
       </section>

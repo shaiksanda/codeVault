@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: repeat(1,1fr);
     grid-gap: 10px;
+    width: 100%;
 }
 
 .grid-data{
@@ -17,11 +18,13 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 1s ease;
+    width: 100%;
 }
 
-.grid-data:hover{
-    transform: scale(1.02);
+.highlighter{
+    width: 100%;
 }
+
 
 .flex-layout{
     display: flex;
@@ -55,6 +58,11 @@
 }
 
 @media screen and (min-width:768px){
+    .grid-data{
+        width: 100%;
+        max-width: 370px;
+    
+    }
     .grid-data-wrapper{
         grid-template-columns: repeat(3,1fr);
     }

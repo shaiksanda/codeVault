@@ -43,6 +43,7 @@
     border-width: 0px;
     border-radius: 8px;
     cursor: pointer;
+    outline: none;
 }
 
 button:disabled {
