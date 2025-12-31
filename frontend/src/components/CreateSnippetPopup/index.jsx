@@ -44,7 +44,7 @@ const CreateSnippetPopup = () => {
                     <h1 className="heading create-snippet-heading">Create Snippet</h1>
                     <form onSubmit={(e) => handleSubmit(e, close)} className="popup-layout">
                         <div className="input-wrapper">
-                            <input onChange={handleChange} value={formData.title} name="title" required className="input-element" id="title" type="text" />
+                            <textarea onChange={handleChange} value={formData.title} name="title" required className="input-element" id="title" type="text" />
                             <label className="label" htmlFor="title">Title</label>
                         </div>
 
